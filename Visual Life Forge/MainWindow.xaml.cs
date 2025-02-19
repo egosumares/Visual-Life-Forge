@@ -20,5 +20,22 @@ namespace Visual_Life_Forge
         {
             InitializeComponent();
         }
+
+        private void OpenNewWindow_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenSecondWindow(object sender, RoutedEventArgs e)
+        {
+            SecondWindow newWindow = new SecondWindow();
+            newWindow.Show(); // Opens the new window
+            this.Close();
+        }
     }
 }

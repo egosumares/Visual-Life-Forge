@@ -1,5 +1,5 @@
 ﻿Visual Life Forge
-1.0.0.0
+
 
 winexe
 C#
@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\App.xaml
-3-2094137904
+2-1083591755
 
-211562079650
+18961804313
 198-635017904
-GameWindow.xaml;MainWindow.xaml;SecondWindow.xaml;
+MainWindow.xaml;SecondWindow.xaml;
 
-True
+False
 

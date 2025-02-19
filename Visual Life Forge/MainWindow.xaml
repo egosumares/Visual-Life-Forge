@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="0,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="336" FontSize="35.9" FontFamily="Consolas" Background="#FFC5C5C5"><Run Language="en-gb" Text="VISUAL LIFE FORGE"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Margin="0,32,0,0" TextWrapping="Wrap"  TextAlignment="Center" VerticalAlignment="Top" Height="40" Width="336" FontSize="30" FontFamily="Consolas" Background="#FFC5C5C5"><Run Language="en-gb" Text="VISUAL LIFE FORGE"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="20" Margin="630,404,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"><Run Language="en-gb" Text="Made by Frank Nzuobontane"/></TextBlock>
-        <TextBlock HorizontalAlignment="Center" Height="74" Margin="0,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="336" FontFamily="Consolas" FontSize="60" Background="#FFC7C7C7"><Run Language="en-gb" Text="START GAME"/></TextBlock>
+        <Button HorizontalAlignment="Center" Click = "OpenSecondWindow" Height="74" Margin="0,92,0,0" VerticalAlignment="Top" Width="336" FontFamily="Consolas" FontSize="50" Background="#FFC7C7C7">
+            <Run Language="en-gb" Text="START GAME"/> </Button>
+        <Button Content="QUIT GAME" HorizontalAlignment="Center" Height="63" Margin="0,351,0,0" VerticalAlignment="Top" Width="188" Click="Button_Click" FontFamily="Consolas" FontSize="24"/>
 
     </Grid>
 </Window>

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Visual Life Forge/1.0.0": {
+        "runtime": {
+          "Visual Life Forge.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Visual Life Forge/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

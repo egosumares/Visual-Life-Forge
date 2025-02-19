@@ -1,0 +1,53 @@
+﻿<Window x:Class="Visual_Life_Forge.SecondWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Second Window" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Top"
+                    Margin="0,20,0,0">
+            <!-- Button to Display Predator Count -->
+
+            <!-- TextBox to Show and Edit the Predator Count -->
+            <!-- Button to Display Predator Count -->
+            <Button Content="How many predators?" Width="150" Height="30" Click="PredatorCountButton_Click"/>
+
+            <!-- TextBox to Show and Edit the Predator Count -->
+            <TextBox x:Name="PredatorTextBox" Width="50" Text="1" TextAlignment="Center"/>
+
+            <!-- Up/Down Buttons for Incrementing and Decrementing -->
+            <StackPanel Orientation="Vertical">
+                <Button Content="▲" Width="30" Click="IncreasePredator"/>
+                <Button Content="▼" Width="30" Click="DecreasePredator"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Consumer Count -->
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Top"
+                    Margin="0,120,0,0">
+            <Button Content="How many consumers?" Width="150" Height="30" Click="ConsumerCountButton_Click"/>
+            <TextBox x:Name="ConsumerTextBox" Width="50" Text="1" TextAlignment="Center"/>
+            <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+                <Button Content="▲" Width="30" Click="IncreaseConsumer"/>
+                <Button Content="▼" Width="30" Click="DecreaseConsumer"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Grid Size -->
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Top"
+                    Margin="0,220,0,0">
+            <Button Content="Grid size (units)?" Width="150" Height="30" Click="GridSizeButton_Click"/>
+            <TextBox x:Name="GridSizeTextBox" Width="50" Text="10" TextAlignment="Center"/>
+            <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+                <Button Content="▲" Width="30" Click="IncreaseGridSize"/>
+                <Button Content="▼" Width="30" Click="DecreaseGridSize"/>
+            </StackPanel>
+        </StackPanel>
+        <Button Content="CONFIRM" HorizontalAlignment="Center" Height="58" Margin="0,351,0,0" VerticalAlignment="Top" Width="268" FontFamily="Consolas" Click="Button_Click" FontSize="36"/>
+    </Grid>
+</Window>
