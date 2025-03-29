@@ -53,8 +53,9 @@ namespace Visual_Life_Forge
             Random random = new Random();
 
             Layers = new List<List<Neuron>>();
-
-            organismPosition = new Position((g.gridSize / 2), (g.gridSize / 2));
+            int randomNumber3 = random.Next(10);
+            int randomNumber2 = random.Next(10);
+            organismPosition = new Position(randomNumber3, randomNumber2);
             layerSizes = new List<int>();
             layerCount = 3;
             layerSizes.Add(9);
@@ -346,6 +347,10 @@ namespace Visual_Life_Forge
         // here I will code the A* pathfinding using the grid structure.
         // here i need the grid to work with foods and obstacles.
 
+        public void EatFood(Grid g)
+        {
+            healthTrue++;
+        }
         public void FindNearestFood(Grid g)
         {
             List<double> distances = new List<double>();
@@ -358,6 +363,10 @@ namespace Visual_Life_Forge
             }
             double minDistance = distances.Min();
             int index = distances.IndexOf(minDistance);
+            if (minDistance == 0)
+            {
+                EatFood(g); return;
+            }
             if (minDistance < vision)
             {
                 Pathfinding(g, g.foods[index].foodPosition);
@@ -423,7 +432,7 @@ namespace Visual_Life_Forge
 
                 mainQueue.Enqueue(g.gridPositions[indexOfStart], StartCost);
 
-                Position previousNode = g.gridPositions[goalPositionIndex];
+                Position previousNode = g.gridPositions[indexOfStart];
                 while (!mainQueue.positions.Contains(g.gridPositions[goalPositionIndex]))
                 {
                     List<Position> adjacentCells = g.AdjacentCells(mainQueue.positions[0]);

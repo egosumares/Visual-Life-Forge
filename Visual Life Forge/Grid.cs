@@ -13,10 +13,13 @@ namespace Visual_Life_Forge
         public List<Food> foods;
         public List<Position> gridPositions;
         public List<Obstacle> obstacles;
+        public List<Position> availablePositions;
         public Grid(int gridsize)
         {
             List<int> posValues = new List<int>();
             gridPositions = new List<Position>();
+            availablePositions = new List<Position>();
+          
             for (int i = 0; i < gridsize; i++)
             {
                 posValues.Add(i);
@@ -28,17 +31,37 @@ namespace Visual_Life_Forge
                     gridPositions.Add(new Position(i, j));
                 }
             }
+            foreach (var value in gridPositions)
+            {
+                availablePositions.Add(value);
+            }
             gridSize = gridsize;
             foods = new List<Food>();
 
             for (int i = 0; i < gridsize; i++)
             {
-                int index = rnd.Next(gridPositions.Count);
-                Food food1 = new Food(gridPositions[index]);
+                int index = rnd.Next(availablePositions.Count);
+                Food food1 = new Food(availablePositions[index]);
                 foods.Add(food1);
+                availablePositions.Remove(availablePositions[index]);
+            }
+            obstacles = new List<Obstacle>();
+            for (int i = 0; i < gridSize; i++)
+            {
+                int index = rnd.Next(availablePositions.Count);
+                Obstacle obstacle = new Obstacle(availablePositions[index]);
+                obstacles.Add(obstacle);
+                availablePositions.Remove(availablePositions[index]);
             }
         }
 
+        public void RemovePosition(Position pos)
+        {
+            foreach (var value in availablePositions)
+            {
+                if (value.posCoordinate == pos.posCoordinate) availablePositions.Remove(pos); return;
+            }
+        }
         public void AddFood()
         {
             int index = rnd.Next(gridPositions.Count);
@@ -49,45 +72,25 @@ namespace Visual_Life_Forge
         public List<Position> AdjacentCells(Position position)
         {
             List<Position> cells = new List<Position>();
-            int iMin = -1;
-            int iMax = 2;
-            int jMin = -1;
-            int jMax = 2;
-            if (position.posCoordinate.Item1 == 0) iMin = 0;
-
-            else if (position.posCoordinate.Item1 == gridSize - 1) iMax = 1;
-
-            else if (position.posCoordinate.Item2 == 0) jMin = 0;
-
-            else if (position.posCoordinate.Item2 == gridSize - 1) jMax = 1;
-
-            for (int i = iMin; i < iMax; i++)
+            for (int i = -1; i < 2; i++)
             {
-                for (int j = jMin; j < jMax; j++)
+                
+                for (int j = -1; j < 2; j++)
                 {
-                    if (i == 0 || j == 0 && !(i == 0 && j == 0))
+                    
+                    if (position.posCoordinate.Item1 + i >= 0 && position.posCoordinate.Item2 + j < gridSize && position.posCoordinate.Item2 + j >= 0 && position.posCoordinate.Item1 + i < gridSize)
                     {
-                        int xCoordinate = i + position.posCoordinate.Item1;
-                        int yCoordinate = j + position.posCoordinate.Item2;
-                        Position testPos = null;
-                        foreach (Position pos in gridPositions)
+                        Position pos = new Position(position.posCoordinate.Item1 + i, position.posCoordinate.Item2 + j);
+                        if (!(i == 0 && j == 0))
                         {
-                            {
-                                if (pos.posCoordinate.Item1 == xCoordinate && pos.posCoordinate.Item2 == yCoordinate)
-                                {
-                                    testPos = pos;
-                                }
-                            }
-                            if (!(i == 0 && j == 0))
-                            {
-                                cells.Add(testPos);
-                            }
-                            ;
+                            cells.Add(pos);
                         }
+                        
                     }
 
                 }
             }
+            
 
             return cells;
         }
