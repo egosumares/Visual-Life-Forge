@@ -13,7 +13,8 @@ namespace Visual_Life_Forge
         public Weight()
         {
             Random rnd = new Random();
-            strength = (rnd.NextDouble() * 2) - 1;
+            // readjusting this value to get nice, varied neural networks.
+            strength = (rnd.NextDouble() * 2) - 0.5;
 
         }
     }

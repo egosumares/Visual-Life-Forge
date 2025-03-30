@@ -108,11 +108,7 @@ namespace Visual_Life_Forge
             {
                 Grid.AddFood();
             }
-            if (predCount == testPredators.Count || consumersCount == testConsumers.Count)
-            {
 
-                _timer.Stop(); return;
-            }
 
         }
 

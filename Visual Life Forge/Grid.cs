@@ -38,7 +38,7 @@ namespace Visual_Life_Forge
             gridSize = gridsize;
             foods = new List<Food>();
 
-            for (int i = 0; i < gridsize; i++)
+            for (int i = 0; i < gridsize/5; i++)
             {
                 int index = rnd.Next(availablePositions.Count);
                 Food food1 = new Food(availablePositions[index]);

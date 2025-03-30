@@ -64,7 +64,7 @@ namespace Visual_Life_Forge
             }
             double minDistance = distances.Min();
             int index = distances.IndexOf(minDistance);
-            if (minDistance < baseOrganism.vision)
+            if (minDistance < baseOrganism.visionTrue)
             {
                 ChasePrey(simulation.testConsumers[index], simulation.Grid);
                 // maybe use bool to call chase prey function in the simulation class?

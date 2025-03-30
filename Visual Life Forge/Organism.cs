@@ -9,12 +9,12 @@ namespace Visual_Life_Forge
 {
     internal class Organism
     {
-        public double vision;
+        // public double vision;
         public double visionTrue;
-        private double jitter;
+        // private double jitter;
         public double totalHealth;
-        public double speed;
-        private (double, double) coordinate;
+        // public double speed;
+        // private (double, double) coordinate;
         public Position organismPosition;
         public double jitterTrue;
         public double healthTrue;
@@ -24,28 +24,8 @@ namespace Visual_Life_Forge
         public int layerCount;
         public int age;
         // get a list of names, choose one at random, add a number, then use this same base for its children in the simulation.
-        public string name;
 
         public List<double> genome;
-
-        public Organism(Grid g)
-        {
-            Random random = new Random();
-            vision = random.NextDouble() * 2 - 1;
-            jitter = random.NextDouble() * 2 - 1;
-            totalHealth = random.NextDouble() * 2 - 1;
-            speed = random.NextDouble() * 2 - 1;
-
-            jitterTrue = Math.Abs(jitter) * 40;
-            healthTrue = (totalHealth + 1) * 10;
-            speedTrue = ((speed + 1) * 2) + 3;
-            coordinate = (g.gridSize / 2, g.gridSize / 2);
-            visionTrue = (vision + 1) * 4;
-            organismPosition = new Position((g.gridSize / 2), (g.gridSize / 2));
-            // REDUNDANT
-
-        }
-        // make thing below private once you have a game function going
 
         public Organism(Grid g, string NeuralNetworkTest)
         {
@@ -57,10 +37,11 @@ namespace Visual_Life_Forge
             int randomNumber2 = random.Next(10);
             organismPosition = new Position(randomNumber3, randomNumber2);
             layerSizes = new List<int>();
-            layerCount = 3;
-            layerSizes.Add(9);
+            layerCount = 4;
             layerSizes.Add(8);
-            layerSizes.Add(4);
+            layerSizes.Add(8);
+            layerSizes.Add(8);
+            layerSizes.Add(2);
             for (int i = 0; i < layerCount; i++)
             {
                 List<Neuron> Layer = new List<Neuron>();
@@ -92,14 +73,12 @@ namespace Visual_Life_Forge
             }
 
             List<double> attributes = StatFinder(4, genome);
-            jitterTrue = attributes[0];
-            if (jitterTrue < 0)
-            { jitterTrue = 1; }
-            healthTrue = attributes[1];
+           // jitterTrue = attributes[0];
+            healthTrue = attributes[0];
             if (healthTrue < 0) { healthTrue = 1; }
-            speedTrue = attributes[2];
-            if (speedTrue < 0) speedTrue = 1;
-            visionTrue = attributes[3];
+            //speedTrue = attributes[2];
+           // if (speedTrue < 0) speedTrue = 1;
+            visionTrue = attributes[1];
             if (visionTrue < 0) visionTrue = 1;
         }
 
@@ -181,29 +160,16 @@ namespace Visual_Life_Forge
             if (visionTrue < 0) visionTrue = 0;
         }
 
-        public Organism(double jitterpTrue, double healthp, double speedpTrue, double visionT, Grid g)
-        {
-            //REDUNDANT
-            Random random = new Random();
-            double jitterMutation = (random.NextDouble() * 2 - 1) * 6;
-            jitterTrue = jitterpTrue + jitterMutation;
-            healthTrue = ((totalHealth + 1) * 10) + ((random.NextDouble() * 2 - 1) * 4);
-            speedTrue = speedpTrue + (random.NextDouble() * 2 - 1);
-            coordinate = (g.gridSize / 2, g.gridSize / 2);
-            visionTrue = (vision + 1) * 4;
-            //REDUNDANT
 
-
-        }
         public void DebugStats(
             List<Food> foods, Grid g)
 
         {
-            coordinate = (g.gridSize / 2, g.gridSize / 2);
+            // coordinate = (g.gridSize / 2, g.gridSize / 2);
             Console.WriteLine($"ORGANISM: jitter: {Math.Round(jitterTrue, 2)} \n " +
                 $"health: {Math.Round(healthTrue, 2)} \n " +
                 $"speed: {Math.Round(speedTrue, 2)} \n" +
-                $"Starting Co-ordinates: ({Math.Round(coordinate.Item1, 2)}, {Math.Round(coordinate.Item2, 2)})" +
+               // $"Starting Co-ordinates: ({Math.Round(coordinate.Item1, 2)}, {Math.Round(coordinate.Item2, 2)})" +
                 $"Vision: {visionTrue}");
             int count = 0;
             foreach (List<Neuron> layer in Layers)
@@ -258,86 +224,86 @@ namespace Visual_Life_Forge
 
                 foreach (var value in values)
                 {
-                    double distance = Math.Pow(Math.Pow(value.Item1 - coordinate.Item1, 2) + Math.Pow(value.Item2 - coordinate.Item2, 2), 0.5);
-                    distances.Add(distance);
+               //     double distance = Math.Pow(Math.Pow(value.Item1 - coordinate.Item1, 2) + Math.Pow(value.Item2 - coordinate.Item2, 2), 0.5);
+              //      distances.Add(distance);
 
                 }
                 double minimumDistance = distances.Min();
                 int minimumIndex = distances.IndexOf(minimumDistance);
                 if (visionTrue > minimumDistance)
                 {
-
-                    double angle = ((random.NextDouble() * 2 - 1) * jitter) + (((Math.Atan2(values[minimumIndex].Item1 - coordinate.Item1, values[minimumIndex].Item2 - coordinate.Item2))) / 3.141593) * 180;
+                    // GET THIS CODE BACK FOR LEGACY CODE? PUT IN DESIGN OR SOMETHING?
+               //     double angle = ((random.NextDouble() * 2 - 1) * jitter) + (((Math.Atan2(values[minimumIndex].Item1 - coordinate.Item1, values[minimumIndex].Item2 - coordinate.Item2))) / 3.141593) * 180;
 
                     // this gives a value between -180 and 180 about which angle the organism should go. 
-                    if (0 <= angle && angle < 90)
+                  //  if (0 <= angle && angle < 90)
                     {
-                        coordinate.Item1 = coordinate.Item1 + speedTrue * Math.Cos((angle) / 180 * Math.PI);
-                        coordinate.Item2 = coordinate.Item2 + (speedTrue * Math.Sin((angle) / 180 * Math.PI) * -1);
+               //         coordinate.Item1 = coordinate.Item1 + speedTrue * Math.Cos((angle) / 180 * Math.PI);
+               //         coordinate.Item2 = coordinate.Item2 + (speedTrue * Math.Sin((angle) / 180 * Math.PI) * -1);
                     }
-                    else if (90 <= angle && angle < 180)
-                    {
-                        coordinate.Item1 = coordinate.Item1 + speedTrue * Math.Cos((angle) / 180 * Math.PI);
-                        coordinate.Item2 = coordinate.Item2 + speedTrue * Math.Sin((angle) / 180 * Math.PI);
+                //    else if (90 <= angle && angle < 180)
+                //    {
+               //         coordinate.Item1 = coordinate.Item1 + speedTrue * Math.Cos((angle) / 180 * Math.PI);
+             //           coordinate.Item2 = coordinate.Item2 + speedTrue * Math.Sin((angle) / 180 * Math.PI);
                     }
-                    else if (-90 <= angle && angle < 0)
-                    {
-                        coordinate.Item1 = coordinate.Item1 + (speedTrue * Math.Cos((angle) / 180 * Math.PI) * -1);
-                        coordinate.Item2 = coordinate.Item2 + (speedTrue * Math.Sin((angle) / 180 * Math.PI) * -1);
-                    }
+                 //   else if (-90 <= angle && angle < 0)
+                  //  {
+                 //       coordinate.Item1 = coordinate.Item1 + (speedTrue * Math.Cos((angle) / 180 * Math.PI) * -1);
+                  //      coordinate.Item2 = coordinate.Item2 + (speedTrue * Math.Sin((angle) / 180 * Math.PI) * -1);
+                //    }
                     else
                     {
-                        coordinate.Item1 = coordinate.Item1 + (speedTrue * Math.Cos((angle) / 180 * Math.PI) * -1);
-                        coordinate.Item2 = coordinate.Item2 + speedTrue * Math.Sin((angle) / 180 * Math.PI);
+                 //       coordinate.Item1 = coordinate.Item1 + (speedTrue * Math.Cos((angle) / 180 * Math.PI) * -1);
+                 //       coordinate.Item2 = coordinate.Item2 + speedTrue * Math.Sin((angle) / 180 * Math.PI);
                     }
 
-                }
-                else
-                {
-                    coordinate.Item1 = coordinate.Item1 + (speedTrue * Math.Cos((random.NextDouble() * 360) / 180 * Math.PI));
-                    coordinate.Item2 = coordinate.Item2 + speedTrue * Math.Sin((random.NextDouble() * 360) / 180 * Math.PI);
-                }
-                double values1 = coordinate.Item1;
-                double values2 = coordinate.Item2;
-                if (coordinate.Item1 < 0)
-                {
-                    coordinate.Item1 = 0;
-                }
-                if (coordinate.Item2 < 0) { coordinate.Item2 = 0; }
-                else if (coordinate.Item1 > 10)
-                {
-                    coordinate.Item1 = 10;
-                }
-                if (coordinate.Item2 > 10) { coordinate.Item2 = 10; }
-                Console.WriteLine($"The new organism's co-ordinate is (({Math.Round(coordinate.Item1, 2)}, {Math.Round(coordinate.Item2, 2)}))");
+               // }
+               // else
+              //  {
+              //      coordinate.Item1 = coordinate.Item1 + (speedTrue * Math.Cos((random.NextDouble() * 360) / 180 * Math.PI));
+              //      coordinate.Item2 = coordinate.Item2 + speedTrue * Math.Sin((random.NextDouble() * 360) / 180 * Math.PI);
+               // }
+              ///  double values1 = coordinate.Item1;
+              //  double values2 = coordinate.Item2;
+               // if (coordinate.Item1 < 0)
+              //  {
+              //      coordinate.Item1 = 0;
+              //  }
+               // if (coordinate.Item2 < 0) { coordinate.Item2 = 0; }
+              //  else if (coordinate.Item1 > 10)
+              //  {
+              //      coordinate.Item1 = 10;
+              //  }
+               // if (coordinate.Item2 > 10) { coordinate.Item2 = 10; }
+                //Console.WriteLine($"The new organism's co-ordinate is (({Math.Round(coordinate.Item1, 2)}, {Math.Round(coordinate.Item2, 2)}))");
 
-                double angle2 = ((random.NextDouble() * 2 - 1) * jitter) + ((Math.Atan2(values[minimumIndex].Item1 - coordinate.Item1, values[minimumIndex].Item2 - coordinate.Item2) / 3.141593) * 180);
-                double speechAngle = angle2;
-                if (speechAngle < 0)
-                {
-                    speechAngle += 360;
-                }
-                Console.WriteLine($"Found food at an angle of {Math.Round(speechAngle, 2)} degrees to the organism. ");
-                double testAngle = ((random.NextDouble() * 2 - 1) * jitter) + ((Math.Atan2(values[minimumIndex].Item1 - coordinate.Item1, values[minimumIndex].Item2 - coordinate.Item2) / 3.141593) * 180);
-                if (angle2 < 0)
-                {
-                    angle2 += 180;
-                }
-                if (angle2 <= 0)
-                {
-                    testAngle += 180;
-                }
-                if ((angle2 - testAngle) <= 5 && (angle2 - testAngle) >= -5)
-                {
+               // double angle2 = ((random.NextDouble() * 2 - 1) * jitter) + ((Math.Atan2(values[minimumIndex].Item1 - coordinate.Item1, values[minimumIndex].Item2 - coordinate.Item2) / 3.141593) * 180);
+               // double speechAngle = angle2;
+              //  if (speechAngle < 0)
+              //  {
+              //      speechAngle += 360;
+             //   }
+              //  Console.WriteLine($"Found food at an angle of {Math.Round(speechAngle, 2)} degrees to the organism. ");
+              //  double testAngle = ((random.NextDouble() * 2 - 1) * jitter) + ((Math.Atan2(values[minimumIndex].Item1 - coordinate.Item1, values[minimumIndex].Item2 - coordinate.Item2) / 3.141593) * 180);
+              // if (angle2 < 0)
+              //  {
+              //      angle2 += 180;
+              //  }
+             //   if (angle2 <= 0)
+             //   {
+             //testAngle += 180;
+                // }
+                // if ((angle2 - testAngle) <= 5 && (angle2 - testAngle) >= -5)
+                //{
                     // here i want the energy of the organism to go up, and the food to basically disappear. 
                     // I need to remove its co-ordinate from the grid's list of foods, then remove the food item. 
                     // add the energy of the food
-                    healthTrue = healthTrue + g.foods[minimumIndex].energy;
-                    Console.WriteLine($"The food at index {minimumIndex} has been removed and the organism has gained {g.foods[minimumIndex].energy} to have a new health of {Math.Round(healthTrue, 2)}");
-                    g.foods.RemoveAt(minimumIndex);
+                  //  healthTrue = healthTrue + g.foods[minimumIndex].energy;
+                 //   Console.WriteLine($"The food at index {minimumIndex} has been removed and the organism has gained {g.foods[minimumIndex].energy} to have a new health of {Math.Round(healthTrue, 2)}");
+                  //  g.foods.RemoveAt(minimumIndex);
 
 
-                }
+               // }
 
 
             }
@@ -358,7 +324,7 @@ namespace Visual_Life_Forge
             foreach (Food food in g.foods)
             {
                 double distanceSquared = Math.Pow(food.foodPosition.posCoordinate.Item1 - organismPosition.posCoordinate.Item1, 2) + Math.Pow(food.foodPosition.posCoordinate.Item2 - organismPosition.posCoordinate.Item2, 2);
-                double distance = Math.Pow(distanceSquared, 2);
+                double distance = Math.Pow(distanceSquared, 0.5);
                 distances.Add(distance);
             }
             double minDistance = distances.Min();
@@ -367,20 +333,23 @@ namespace Visual_Life_Forge
             {
                 EatFood(g); return;
             }
-            if (minDistance < vision)
+            if (minDistance < visionTrue)
             {
                 Pathfinding(g, g.foods[index].foodPosition);
             }
             else
             {
                 List<Position> positions = g.AdjacentCells(organismPosition);
+                bool shouldBreak = false;
                 foreach (Position position in positions)
                 {
                     foreach (var obstacle in g.obstacles)
                     {
                         // this is occupied by an obstacle so that cell can't be occupied at all. 
-                        if (obstacle.obstaclePosition == position) positions.Remove(position);
+                        if (obstacle.obstaclePosition.posCoordinate == position.posCoordinate) { positions.Remove(position); shouldBreak = true; break; }
                     }
+                    if (shouldBreak) { break; }
+
                 }
                 Random rnd = new Random();
                 int positionIndex = rnd.Next(positions.Count);
@@ -404,7 +373,7 @@ namespace Visual_Life_Forge
             }
             else
             {
-                Dictionary<Position, Position> cameFrom = new Dictionary<Position, Position>();
+                Dictionary<(int, int), (int, int)> cameFrom = new Dictionary<(int, int), (int, int)>();
                 int goalPositionIndex = 0;
                 int indexOfStart = 0;
                 double StartCost = 0;
@@ -417,12 +386,12 @@ namespace Visual_Life_Forge
                     double euclideanCostSquared = Math.Pow(Math.Abs(position.posCoordinate.Item1 - goalNode.posCoordinate.Item1), 2) + Math.Pow(Math.Abs(position.posCoordinate.Item2 - goalNode.posCoordinate.Item2), 2);
                     double heuristic = Math.Pow(euclideanCostSquared, 0.5);
 
-                    if (organismPosition.posCoordinate.Item1 == position.posCoordinate.Item1 && position.posCoordinate.Item2 == organismPosition.posCoordinate.Item2)
+                    if (position.posCoordinate == organismPosition.posCoordinate)
                     {
                         indexOfStart = g.gridPositions.IndexOf(position);
                         StartCost = heuristic;
                     }
-                    if (goalNode.posCoordinate.Item1 == position.posCoordinate.Item1 && position.posCoordinate.Item2 == goalNode.posCoordinate.Item2)
+                    if (goalNode.posCoordinate == position.posCoordinate)
                     {
 
                         goalPositionIndex = g.gridPositions.IndexOf(position);
@@ -433,10 +402,19 @@ namespace Visual_Life_Forge
                 mainQueue.Enqueue(g.gridPositions[indexOfStart], StartCost);
 
                 Position previousNode = g.gridPositions[indexOfStart];
-                while (!mainQueue.positions.Contains(g.gridPositions[goalPositionIndex]))
+                bool MainNoHasEnd = true;
+                List<Position> visitedNodes = new List<Position>();
+                while (MainNoHasEnd)
                 {
+                    foreach (Position visitedNode in visitedNodes)
+                    {
+                        foreach (Position position in mainQueue.positions)
+                        {
+                            if (visitedNode.posCoordinate == position.posCoordinate) { mainQueue.Dequeue(); }
+                        }
+                    }
+                    
                     List<Position> adjacentCells = g.AdjacentCells(mainQueue.positions[0]);
-
                     mainQueue.Dequeue();
                     foreach (var cell in adjacentCells)
                     {
@@ -454,23 +432,35 @@ namespace Visual_Life_Forge
 
                         mainQueue.Enqueue(cell, cost + heuristic);
                     }
-                    cameFrom.Add(mainQueue.positions[0], previousNode);
-                }
-                Position current = goalNode;
-                List<Position> finalPath = new List<Position>();
-                while (current != g.gridPositions[indexOfStart])
-                {
-                    finalPath.Insert(finalPath.Count - 1, current);
-                    current = cameFrom[current];
+                    int check = 66; 
 
-                }
+                   cameFrom.Add(previousNode.posCoordinate, mainQueue.positions[0].posCoordinate);
 
+                    foreach (var position in mainQueue.positions)
+                    {
+                        if (position.posCoordinate == g.gridPositions[goalPositionIndex].posCoordinate)
+                        {
+                            MainNoHasEnd = false;
+                        }
+
+                    }
+                    previousNode = mainQueue.positions[0];
+                }
+                Position orgPos = organismPosition;
+                (int, int) current = goalNode.posCoordinate;
+                List<(int, int)> finalPath = new List<(int, int)>();
+
+                MoveOrganism(cameFrom[organismPosition.posCoordinate]);
                 // finalPath should contin the 
             }
         }
 
 
-
+        public void MoveOrganism((int, int) pos)
+        {
+            organismPosition.posCoordinate = pos;
+            healthTrue--;
+        }
         public List<Weight> FindWeights(ref Neuron neuron1)
         {
             List<Weight> weights = new List<Weight>();
@@ -507,7 +497,7 @@ namespace Visual_Life_Forge
             // {
             // startInputs.Add(random.NextDouble());
             // }
-            int startLayer = 0;
+            int startLayer = 1;
             List<double> intermediaryOutput = new List<double>();
             List<double> output = LayerValueTransfer(startInputs, startLayer);
             // this start bit doesn't make much sense. Maybe, make a separate method for just calculating the output for the input neurons before moving on. 

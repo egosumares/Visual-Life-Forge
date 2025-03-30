@@ -48,6 +48,7 @@ namespace Visual_Life_Forge
                 foreach (Weight weight in weights)
                 {
                     output += inputs[count] * weight.strength;
+                    output += bias;
                     count++;
                 }
 

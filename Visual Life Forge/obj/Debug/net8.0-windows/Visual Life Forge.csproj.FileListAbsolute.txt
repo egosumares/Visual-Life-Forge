@@ -23,3 +23,28 @@ C:\Users\NZUOFR\OneDrive - The Kings School Chester\C-Sharp Files\Visual Life Fo
 C:\Users\NZUOFR\OneDrive - The Kings School Chester\C-Sharp Files\Visual Life Folder\Visual Life Forge\obj\Debug\net8.0-windows\Visual Life Forge.pdb
 C:\Users\NZUOFR\OneDrive - The Kings School Chester\C-Sharp Files\Visual Life Folder\Visual Life Forge\obj\Debug\net8.0-windows\Visual Life Forge.genruntimeconfig.cache
 C:\Users\NZUOFR\OneDrive - The Kings School Chester\C-Sharp Files\Visual Life Folder\Visual Life Forge\obj\Debug\net8.0-windows\ref\Visual Life Forge.dll
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\bin\Debug\net8.0-windows\Visual Life Forge.exe
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\bin\Debug\net8.0-windows\Visual Life Forge.deps.json
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\bin\Debug\net8.0-windows\Visual Life Forge.runtimeconfig.json
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\bin\Debug\net8.0-windows\Visual Life Forge.dll
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\bin\Debug\net8.0-windows\Visual Life Forge.pdb
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\SecondWindow.baml
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\GameWindow.g.cs
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\SecondWindow.g.cs
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\Visual Life Forge_MarkupCompile.cache
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\Visual Life Forge_MarkupCompile.lref
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\GameWindow.baml
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\Visual Life Forge.g.resources
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\Visual Life Forge.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\Visual Life Forge.AssemblyInfoInputs.cache
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\Visual Life Forge.AssemblyInfo.cs
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\Visual Life Forge.csproj.CoreCompileInputs.cache
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\Visual Life Forge.sourcelink.json
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\Visual Life Forge.dll
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\refint\Visual Life Forge.dll
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\Visual Life Forge.pdb
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\Visual Life Forge.genruntimeconfig.cache
+C:\Users\veget\Desktop\C-Sharp Games\Visual Life Forge\Visual-Life-Forge\Visual Life Forge\obj\Debug\net8.0-windows\ref\Visual Life Forge.dll

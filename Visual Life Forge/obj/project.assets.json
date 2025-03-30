@@ -8,24 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\NZUOFR\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\veget\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NZUOFR\\OneDrive - The Kings School Chester\\C-Sharp Files\\Visual Life Folder\\Visual Life Forge\\Visual Life Forge.csproj",
+      "projectUniqueName": "C:\\Users\\veget\\Desktop\\C-Sharp Games\\Visual Life Forge\\Visual-Life-Forge\\Visual Life Forge\\Visual Life Forge.csproj",
       "projectName": "Visual Life Forge",
-      "projectPath": "C:\\Users\\NZUOFR\\OneDrive - The Kings School Chester\\C-Sharp Files\\Visual Life Folder\\Visual Life Forge\\Visual Life Forge.csproj",
-      "packagesPath": "C:\\Users\\NZUOFR\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NZUOFR\\OneDrive - The Kings School Chester\\C-Sharp Files\\Visual Life Folder\\Visual Life Forge\\obj\\",
+      "projectPath": "C:\\Users\\veget\\Desktop\\C-Sharp Games\\Visual Life Forge\\Visual-Life-Forge\\Visual Life Forge\\Visual Life Forge.csproj",
+      "packagesPath": "C:\\Users\\veget\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\veget\\Desktop\\C-Sharp Games\\Visual Life Forge\\Visual-Life-Forge\\Visual Life Forge\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\NZUOFR\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\veget\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -33,7 +28,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

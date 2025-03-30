@@ -49,6 +49,11 @@
                     </Style>
                 </Button.Style>
             </Button>
+
+            <!-- Organism Info Panel (hidden by default) -->
+            <Border Name="OrganismInfoBorder" Background="LightYellow" Padding="10" Visibility="Collapsed" Margin="0,10,0,0">
+                <TextBlock Name="OrganismInfoText" Text="Organism info will appear here." />
+            </Border>
         </StackPanel>
     </Grid>
 </Window>
