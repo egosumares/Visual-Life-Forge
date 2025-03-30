@@ -24,12 +24,16 @@ namespace Visual_Life_Forge
             InitializeComponent();
         }
 
+        public int predatorCount;
+        public int consumerCount;
+        public int gridSize;
+
         private void OpenGameWindow(object sender, RoutedEventArgs e)
         {
             // Parse values from TextBoxes
-            int predatorCount = int.TryParse(PredatorTextBox.Text, out predatorCount) ? predatorCount : 0;
-            int consumerCount = int.TryParse(ConsumerTextBox.Text, out consumerCount) ? consumerCount : 0;
-            int gridSize = int.TryParse(GridSizeTextBox.Text, out gridSize) ? gridSize : 10;  // Default grid size is 10
+            predatorCount = int.TryParse(PredatorTextBox.Text, out predatorCount) ? predatorCount : 0;
+            consumerCount = int.TryParse(ConsumerTextBox.Text, out consumerCount) ? consumerCount : 0;
+            gridSize = int.TryParse(GridSizeTextBox.Text, out gridSize) ? gridSize : 10;  // Default grid size is 10
 
             // Pass these values to the GameWindow
             GameWindow gameWindow = new GameWindow(predatorCount, consumerCount, gridSize);
@@ -103,7 +107,7 @@ namespace Visual_Life_Forge
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenGameWindow(sender, e);
         }
     }
 }

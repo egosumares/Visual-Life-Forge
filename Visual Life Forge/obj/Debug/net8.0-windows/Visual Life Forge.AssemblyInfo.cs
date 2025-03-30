@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Visual Life Forge")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09f977fe3c1b7c08a6c9c8a4ee261436416e0f25")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1724e1f980a0580424c3f6fc79d651919029b1ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("Visual Life Forge")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Visual Life Forge")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

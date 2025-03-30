@@ -82,6 +82,7 @@ namespace Visual_Life_Forge
                 }
                 Random rnd = new Random();
                 int positionIndex = rnd.Next(positions.Count);
+
                 baseOrganism.organismPosition = positions[positionIndex];
                 baseOrganism.healthTrue -= 1;
             }
@@ -128,7 +129,7 @@ namespace Visual_Life_Forge
 
                 mainQueue.Enqueue(g.gridPositions[indexOfStart], StartCost);
 
-                Position previousNode = g.gridPositions[goalPositionIndex];
+                Position previousNode = g.gridPositions[indexOfStart];
                 while (!mainQueue.positions.Contains(g.gridPositions[goalPositionIndex]))
                 {
                     List<Position> adjacentCells = g.AdjacentCells(mainQueue.positions[0]);

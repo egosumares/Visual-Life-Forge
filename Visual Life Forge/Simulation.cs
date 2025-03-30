@@ -16,6 +16,7 @@ namespace Visual_Life_Forge
         private double Score;
         public int tickCount;
         public int gridSize;
+        public bool loopInitiated;
         private System.Timers.Timer _timer = new System.Timers.Timer(150);
         // I'm gonna need to make a BIG debugstats function here. 
         public Simulation(Organism org, Grid g)
@@ -27,11 +28,25 @@ namespace Visual_Life_Forge
 
         public Simulation(List<Predator> Predators, List<Consumer> consumers, Grid g)
         {
+            Random rnd = new Random();
             this.testPredators = Predators;
             testConsumers = consumers;
             Grid = g;
-            Grid.obstacles = new List<Obstacle>();
-            NewSimulation();
+            
+            // update the organism's positions using the AVAILABLE POSITIONS
+            foreach (Consumer consumer in testConsumers) 
+            {
+                int index = rnd.Next(Grid.availablePositions.Count);
+                consumer.consumerOrganism.organismPosition = Grid.availablePositions[index];
+                Grid.RemovePosition(consumer.consumerOrganism.organismPosition);
+            }
+            foreach (Predator predator in testPredators)
+            {
+                int index = rnd.Next(Grid.availablePositions.Count);
+                predator.baseOrganism.organismPosition = Grid.availablePositions[index];
+                Grid.RemovePosition(predator.baseOrganism.organismPosition);
+            }
+           // NewSimulation(); I can now control this in the GameWindow function
 
         }
 
@@ -42,7 +57,7 @@ namespace Visual_Life_Forge
 
             // why is nothing happening?
             //_timer = new System.Timers.Timer(150);
-            _timer.Elapsed += RunSimulationOnce;
+            // _timer.Elapsed += RunSimulationOnce;
 
             _timer.Enabled = true;
 
@@ -53,11 +68,10 @@ namespace Visual_Life_Forge
         {
             Console.WriteLine("Tick");
         }
-        public void RunSimulationOnce(object sender, ElapsedEventArgs e)
+        public void RunSimulationOnce()
         {
-            Console.WriteLine("abcd");
-            DrawScreen();
-            tickCount++;
+
+    
             int predCount = 0;
             int consumersCount = 0;
             foreach (var predator in testPredators)
@@ -73,7 +87,21 @@ namespace Visual_Life_Forge
                 if (consumer.consumerOrganism.healthTrue <= 0) { consumersCount++; }
                 else
                 {
+                    double value = consumer.consumerOrganism.healthTrue;
                     consumer.consumerOrganism.FindNearestFood(Grid);
+                    // if the health value has incremented and it hasn't moved, it has eaten the food
+                    if (consumer.consumerOrganism.healthTrue == value +1)
+                    {
+                        // find the food with the same coordinate
+                        foreach (Food food in Grid.foods)
+                        {
+                            if (consumer.consumerOrganism.organismPosition.posCoordinate == food.foodPosition.posCoordinate)
+                            {
+                                // remove it from the grid
+                                Grid.foods.Remove(food); break;
+                            }
+                        }
+                    }
                 }
             }
             while (Grid.foods.Count < Grid.gridSize)
@@ -82,8 +110,10 @@ namespace Visual_Life_Forge
             }
             if (predCount == testPredators.Count || consumersCount == testConsumers.Count)
             {
+
                 _timer.Stop(); return;
             }
+
         }
 
         public double DetermineScore()
