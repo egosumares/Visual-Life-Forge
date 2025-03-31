@@ -2,6 +2,79 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/Visual Life Forge/FileContentIndex/c23e78b6-8581-4485-96da-941b819fa2b4.vsidx
-/.vs/Visual Life Forge/FileContentIndex/4934ab38-1fe4-402d-bf63-020a21e40e98.vsidx
-*.editorconfig
+## Ignore Visual Studio files
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+
+## Visual Studio profiler and coverage results
+*.psess
+*.vsp
+*.vspx
+*.sap
+*.gcov
+coverage/
+
+## Rider IDE files
+.idea/
+*.sln.iml
+
+## DotNet core build artifacts
+project.lock.json
+project.fragment.lock.json
+artifacts/
+log/
+*.log
+
+## NuGet Packages
+*.nupkg
+*.snupkg
+*.nuspec
+.nuget/
+packages/
+
+## Temporary files
+*~
+*.tmp
+*.bak
+
+## ReSharper cache
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+## dotCover
+*.dotCover
+
+## Visual Studio Code coverage files
+coverage.opencover.xml
+coverage.cobertura.xml
+coverage.json
+
+## Test Results
+TestResults/
+*.trx
+
+## Other potentially sensitive or local files
+appsettings.Development.json
+secrets.json
+*.pfx
+*.publishsettings
+
+## OS-specific files
+.DS_Store
+Thumbs.db
