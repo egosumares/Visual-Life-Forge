@@ -456,7 +456,7 @@ namespace Visual_Life_Forge
                 List<(int, int)> finalPath = new List<(int, int)>();
 
                 MoveOrganism(cameFrom[organismPosition.posCoordinate]);
-                // finalPath should contin the 
+                // finalPath should contain the 
             }
         }
 
