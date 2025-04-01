@@ -31,7 +31,12 @@ namespace Visual_Life_Forge
             Random rnd = new Random();
             this.testPredators = Predators;
             testConsumers = consumers;
+            // ORDERING LISTS BY STRENGTH NOW
+            testPredators = testPredators.OrderByDescending(p => p.baseOrganism.strengthTrue).ToList();
+            testConsumers = testConsumers.OrderByDescending(p => p.consumerOrganism.strengthTrue).ToList();
             Grid = g;
+
+
             
             // update the organism's positions using the AVAILABLE POSITIONS
             foreach (Consumer consumer in testConsumers) 
@@ -79,7 +84,32 @@ namespace Visual_Life_Forge
                 if (predator.baseOrganism.healthTrue <= 0) { predCount++; }
                 else
                 {
+                    Position oldPosition = predator.baseOrganism.organismPosition;
                     predator.FindNearestConsumer(this);
+                    Position newPosition = predator.baseOrganism.organismPosition;
+                    // get the dead consumer next to the predator and remove it from the simulation. This shouldn't be too hard.
+                    UpdateAvailablePositions(oldPosition, newPosition);
+                    // for this stuff, how about I just pass in the simulation to the organism/predator for their pathfinding functions? 
+                    // lets them know if organisms are in the way or not, it doesn't really make sense in terms of real life though. not rlly bothered for now
+                    if (predator.hasEaten) 
+                    {
+                        Position predatorCell = predator.baseOrganism.organismPosition;
+                        List<Position> adjacentCells = Grid.AdjacentCells(predatorCell);
+                        List<(int, int)> adjacentCoordinates = new List<(int, int)>();
+                        foreach (var pos in adjacentCells)
+                        {
+                            adjacentCoordinates.Add(pos.posCoordinate);
+                        }
+                        // finds all the coordinates adjacent to the predator
+                        foreach (var consumer in testConsumers)
+                        {
+                           if (adjacentCoordinates.Contains(consumer.consumerOrganism.organismPosition.posCoordinate)) 
+                            {
+                                // remove the consumer from the list once it has been eaten
+                                testConsumers.Remove(consumer); predator.hasEaten = false; break;
+                            }
+                        }
+                    }
                 }
             }
             foreach (var consumer in testConsumers)
@@ -87,9 +117,12 @@ namespace Visual_Life_Forge
                 if (consumer.consumerOrganism.healthTrue <= 0) { consumersCount++; }
                 else
                 {
+                    Position oldPosition = consumer.consumerOrganism.organismPosition;
                     double value = consumer.consumerOrganism.healthTrue;
                     consumer.consumerOrganism.FindNearestFood(Grid);
+                    Position newPosition = consumer.consumerOrganism.organismPosition;
                     // if the health value has incremented and it hasn't moved, it has eaten the food
+                    UpdateAvailablePositions(oldPosition, newPosition);
                     if (consumer.consumerOrganism.healthTrue == value +1)
                     {
                         // find the food with the same coordinate
@@ -104,14 +137,29 @@ namespace Visual_Life_Forge
                     }
                 }
             }
-            while (Grid.foods.Count < Grid.gridSize)
-            {
-                Grid.AddFood();
-            }
+            // NO! JUST order testConsumers in order of strength :)
+
+            
 
 
         }
 
+        private void UpdateAvailablePositions(Position oldPos, Position newPos)
+        {
+            // (int, int) oldPosCoordinate = oldPos.posCoordinate;
+            (int, int) newPosCoordinate = newPos.posCoordinate;
+            foreach(var Position in Grid.availablePositions)
+            {
+                if (Position.posCoordinate == newPosCoordinate)
+                { Grid.availablePositions.Remove(Position); break; }
+            }
+            Grid.availablePositions.Add(oldPos);
+        }
+
+        private void UpdateAvailablePositions(Position pos)
+        {
+
+        }
         public double DetermineScore()
         {
 

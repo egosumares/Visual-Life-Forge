@@ -19,6 +19,8 @@ namespace Visual_Life_Forge
         public double jitterTrue;
         public double healthTrue;
         public double speedTrue;
+        // if the organism has a higher strength than another, it can 'bully' it off a spot. 
+        public double strengthTrue;
         public List<List<Neuron>> Layers;
         public List<int> layerSizes;
         public int layerCount;
@@ -41,7 +43,7 @@ namespace Visual_Life_Forge
             layerSizes.Add(8);
             layerSizes.Add(8);
             layerSizes.Add(8);
-            layerSizes.Add(2);
+            layerSizes.Add(3);
             for (int i = 0; i < layerCount; i++)
             {
                 List<Neuron> Layer = new List<Neuron>();
@@ -80,6 +82,9 @@ namespace Visual_Life_Forge
            // if (speedTrue < 0) speedTrue = 1;
             visionTrue = attributes[1];
             if (visionTrue < 0) visionTrue = 1;
+            strengthTrue = attributes[2];
+            if (strengthTrue < 0) strengthTrue = 1;
+
         }
 
         public Organism(Grid g, string NeuralNetworkTest, List<double> genome, List<List<Neuron>> neuralNetwork, double mutationRate)
@@ -357,7 +362,7 @@ namespace Visual_Life_Forge
                 healthTrue -= 1;
             }
         }
-        public void Pathfinding(Grid g, Position goalNode)
+        private void Pathfinding(Grid g, Position goalNode)
         {
             // goalNode refers to the node that the food should try and reach.
             // the queue that will hold all of the positions and their estimated costs. 

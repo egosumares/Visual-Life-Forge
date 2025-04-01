@@ -36,6 +36,7 @@ namespace Visual_Life_Forge
             {
                 Predator predator = new Predator();
                 predator.baseOrganism = new Organism(BaseGrid, "test");
+                predator.AttackStrength = predator.baseOrganism.strengthTrue;
                 Predators.Add(predator);
             }
 
@@ -152,6 +153,9 @@ namespace Visual_Life_Forge
             int totalOrganisms = simulation.testConsumers.Count + simulation.testPredators.Count;
             OrganismCount.Text = totalOrganisms.ToString();
 
+            SimulationGrid.Rows = simulation.Grid.gridSize;
+            SimulationGrid.Columns = simulation.Grid.gridSize;
+
             // Clear previous visuals
             foreach (var child in SimulationGrid.Children)
             {
@@ -161,7 +165,7 @@ namespace Visual_Life_Forge
                 }
             }
 
-            double cellSize = 50;
+            double cellSize = SimulationGrid.ActualWidth / SimulationGrid.Columns;
             int columns = SimulationGrid.Columns;
 
             // Helper to draw a shape in the correct cell
@@ -180,9 +184,11 @@ namespace Visual_Life_Forge
                         Fill = color
                     };
 
-                    double offset = (cellSize - width) / 2;
-                    Canvas.SetLeft(shape, offset);
-                    Canvas.SetTop(shape, offset / 2);
+                    
+                    double offsetX = (cellSize - width) / 2;
+                    double offsetY = (cellSize - height) / 6 ;
+                    Canvas.SetLeft(shape, offsetX);
+                    Canvas.SetTop(shape, offsetY);
 
                     canvas.Children.Add(shape);
                 }

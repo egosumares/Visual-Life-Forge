@@ -16,7 +16,7 @@
         <!-- Left Panel: Simulation Grid -->
         <ScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <!-- UniformGrid automatically arranges children in n rows and n columns -->
-            <UniformGrid Name="SimulationGrid" Rows="10" Columns="10">
+            <UniformGrid Name="SimulationGrid">
                 
             </UniformGrid>
         </ScrollViewer>

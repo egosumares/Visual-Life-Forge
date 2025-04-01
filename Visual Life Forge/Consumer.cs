@@ -35,7 +35,7 @@ namespace Visual_Life_Forge
         }
         // I want a RunFromPredator() function. 
         // Modify A* to make the heuristic cost just the distance of the node from the predator as it moves, just continue to make it run away
-
+        // FUSE run from predator and find food function to make sure that organisms run from attackers while trying to get food too.
         public void RunFromPredator(Predator predator, Grid g)
         {
             A_StarQueue mainQueue = new A_StarQueue();

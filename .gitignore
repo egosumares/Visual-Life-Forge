@@ -2,6 +2,128 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/Visual Life Forge/FileContentIndex/c23e78b6-8581-4485-96da-941b819fa2b4.vsidx
-/.vs/Visual Life Forge/FileContentIndex/4934ab38-1fe4-402d-bf63-020a21e40e98.vsidx
-*.editorconfig
+## Visual Studio 2022 Cache and User Files
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln.dotsettings.user
+*.csproj.user
+*.dbmdl
+*.jfm
+
+## Build and Compilation Artifacts
+bin/
+obj/
+x64/
+x86/
+[Bb]uild/
+[Bb]in/
+[Dd]ebug/
+[Rr]elease/
+[Rr]eleases/
+[Dd]ebugPublic/
+artifacts/
+out/
+
+## NuGet packages
+packages/
+*.nupkg
+*.snupkg
+.nuget/
+
+## DotNet Artifacts
+project.lock.json
+project.fragment.lock.json
+log/
+*.log
+
+## Visual Studio profiling files
+*.vsp
+*.vspx
+*.psess
+*.gcov
+coverage/
+coverage.json
+coverage.opencover.xml
+coverage.cobertura.xml
+
+## Test Results
+TestResults/
+*.trx
+*.coverage
+
+## Resharper and Rider IDE files
+_ReSharper*/
+*.DotSettings.user
+.idea/
+*.sln.iml
+
+## dotCover files
+*.dotCover
+
+## SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+## Temporary and backup files
+*.tmp
+*.temp
+*~
+*.bak
+*.orig
+*.cache
+
+## User configuration and secrets
+appsettings.Development.json
+secrets.json
+*.pfx
+*.publishsettings
+
+## OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## Miscellaneous Files
+*.aps
+*.ncb
+*.opensdf
+*.ipch
+*.pdb
+*.ilk
+*.meta
+*.pidb
+*.svclog
+*.scc
+*.tlb
+*.tli
+*.tlh
+*.sbr
+*.resources
+*.db
+
+## Logs and dumps
+*.log
+*.dmp
+*.stackdump
+/Visual Life Forge/obj/Debug/net8.0-windows/Visual Life Forge.AssemblyInfoInputs.cache
+/Visual Life Forge/obj/Debug/net8.0-windows/Visual Life Forge.assets.cache
+/Visual Life Forge/obj/Debug/net8.0-windows/Visual Life Forge.csproj.CoreCompileInputs.cache
+/Visual Life Forge/obj/Debug/net8.0-windows/Visual Life Forge.designer.runtimeconfig.json
+/Visual Life Forge/obj/Debug/net8.0-windows/Visual Life Forge.dll
+/Visual Life Forge/obj/Debug/net8.0-windows/refint/Visual Life Forge.dll
+/Visual Life Forge/obj/Debug/net8.0-windows/ref/Visual Life Forge.dll
+/Visual Life Forge/bin/Debug/net8.0-windows/Visual Life Forge.dll
+/Visual Life Forge/bin/Debug/net8.0-windows/Visual Life Forge.pdb
+/.vs/Visual Life Forge/FileContentIndex/7a117e0d-f655-42e8-91a2-02385f824cea.vsidx
+/.vs/Visual Life Forge/FileContentIndex/819ff0c7-84e8-4acb-954a-e6187b357760.vsidx
+/.vs/Visual Life Forge/v17/.suo
+/Visual Life Forge/obj/Debug/net8.0-windows/GameWindow.baml
+/.vs/Visual Life Forge/DesignTimeBuild/.dtbcache.v2
+/.vs/Visual Life Forge/v17/DocumentLayout.backup.json
+/.vs/Visual Life Forge/v17/.futdcache.v2
+/.vs/Visual Life Forge/v17/DocumentLayout.json
