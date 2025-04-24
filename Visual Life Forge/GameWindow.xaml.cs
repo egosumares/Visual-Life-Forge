@@ -17,6 +17,7 @@ namespace Visual_Life_Forge
     {
         private Simulation simulation;
         private Grid BaseGrid;
+        // these lists might be useless. I don't ever use the code below
         private List<Predator> Predators;
         private List<Consumer> Consumers;
 
